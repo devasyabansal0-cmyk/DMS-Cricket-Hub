@@ -1,0 +1,586 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f3f6f4;
+    color: #202b35;
+    line-height: 1.6;
+}
+
+
+/* Header */
+
+.site-header {
+    background: linear-gradient(135deg, #102a43, #174936);
+    color: white;
+    padding: 25px 5%;
+}
+
+.brand {
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.logo {
+    width: 125px;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.brand-text h1 {
+    font-size: 2.3rem;
+    color: #f4c95d;
+    line-height: 1.3;
+}
+
+.brand-text p {
+    margin-top: 5px;
+    color: #f1f5f9;
+}
+
+.brand-text p:last-child {
+    color: #f4c95d;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+/* Navigation */
+
+.navbar {
+    background-color: #0b1f33;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 15px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+    background-color: #24734d;
+    color: #ffffff;
+}
+
+
+/* Main Layout */
+
+main {
+    width: min(1400px, 94%);
+    margin: 25px auto;
+}
+
+.section {
+    background-color: #ffffff;
+    padding: 24px;
+    margin-bottom: 22px;
+    border: 1px solid #dce5df;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(15, 42, 30, 0.07);
+    scroll-margin-top: 20px;
+}
+
+.section h2 {
+    color: #174936;
+    font-size: 1.45rem;
+    margin-bottom: 15px;
+    padding-bottom: 9px;
+    border-bottom: 2px solid #e4c15b;
+}
+
+.section p {
+    margin-bottom: 10px;
+}
+
+
+/*  Match Setup Form */
+
+#match-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #263d35;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 11px 12px;
+    font: inherit;
+    color: #202b35;
+    background-color: #ffffff;
+    border: 1px solid #cbd5d0;
+    border-radius: 6px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #39865d;
+    outline-offset: 1px;
+    border-color: #39865d;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+/* Buttons */
+
+button {
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 7px;
+    padding: 11px 17px;
+    background-color: #24734d;
+    color: white;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #18583a;
+    transform: translateY(-1px);
+}
+
+button:focus-visible {
+    outline: 3px solid #e4bd45;
+    outline-offset: 3px;
+}
+
+#start-match {
+    grid-column: 1 / -1;
+    justify-self: start;
+    min-width: 160px;
+    background-color: #c69b29;
+    color: #102a43;
+}
+
+#start-match:hover {
+    background-color: #e0b63e;
+}
+
+
+/* Match Information */
+
+#match-information p {
+    padding: 8px 0;
+    border-bottom: 1px solid #edf0ed;
+}
+
+#match-information strong {
+    color: #174936;
+}
+
+
+/*  Live Scoreboard */
+
+.scoreboard {
+    text-align: center;
+    background: linear-gradient(135deg, #102a43, #174936);
+    color: white;
+    border: none;
+}
+
+.scoreboard h2 {
+    color: #f4c95d;
+    border-bottom-color: #c69b29;
+}
+
+.match-heading {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.score-display {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 24px;
+    background-color: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+}
+
+.score-display h3 {
+    color: #f4c95d;
+}
+
+.total-score {
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 1.3;
+    margin: 12px 0;
+    color: #f4c95d;
+}
+
+.score-display p {
+    margin: 7px 0;
+}
+
+
+/*  Tables */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: white;
+}
+
+thead {
+    background-color: #174936;
+    color: white;
+}
+
+th,
+td {
+    padding: 12px 10px;
+    text-align: center;
+    border: 1px solid #dce5df;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f0f6f2;
+}
+
+tbody tr:hover {
+    background-color: #e5f1e9;
+}
+
+th {
+    white-space: nowrap;
+}
+
+
+/*  Scoring Controls */
+
+.scoring-controls {
+    background-color: #fffdf5;
+    border-color: #e7d69d;
+}
+
+.scoring-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.scoring-buttons button {
+    min-width: 95px;
+    background-color: #174936;
+}
+
+.scoring-buttons button:hover {
+    background-color: #24734d;
+}
+
+/* Run buttons */
+
+.scoring-buttons button[data-runs="4"],
+.scoring-buttons button[data-runs="6"] {
+    background-color: #c69b29;
+    color: #102a43;
+}
+
+.scoring-buttons button[data-runs="4"]:hover,
+.scoring-buttons button[data-runs="6"]:hover {
+    background-color: #e0b63e;
+}
+
+/* Extra and wicket buttons */
+
+.scoring-buttons button[data-extra],
+.scoring-buttons button[data-wicket] {
+    background-color: #a63c3c;
+}
+
+.scoring-buttons button[data-extra]:hover,
+.scoring-buttons button[data-wicket]:hover {
+    background-color: #812b2b;
+}
+
+#undo-score {
+    background-color: #475569;
+}
+
+#undo-score:hover {
+    background-color: #334155;
+}
+
+
+/* Current Over */
+
+#over-balls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    margin: 15px 0;
+}
+
+#over-balls li {
+    padding: 8px 14px;
+    min-width: 42px;
+    text-align: center;
+    background-color: #e7f2e9;
+    color: #174936;
+    border: 1px solid #b9d7c1;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+
+/* Ball-by-Ball Log */
+
+#ball-log table {
+    min-width: 620px;
+}
+
+#ball-log th,
+#ball-log td {
+    padding: 12px;
+}
+
+
+/* Match Summary */
+
+#match-summary p {
+    padding: 10px 12px;
+    margin: 5px 0;
+    background-color: #f0f6f2;
+    border-left: 4px solid #24734d;
+    border-radius: 4px;
+}
+
+#match-result {
+    font-weight: bold;
+}
+
+
+/* Recent Matches */
+
+#match-history table {
+    min-width: 500px;
+}
+
+
+/* About Section */
+
+#about p {
+    max-width: 900px;
+}
+
+
+/*  Contact Section */
+
+#contact-form {
+    display: grid;
+    gap: 16px;
+    max-width: 700px;
+}
+
+#contact-form button {
+    justify-self: start;
+    min-width: 140px;
+}
+
+
+/* Footer */
+
+.site-footer {
+    background-color: #0b1f33;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+.site-footer p {
+    margin: 5px 0;
+}
+
+.site-footer a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #f4c95d;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+
+/*  Responsive Design - Tablets */
+
+@media (max-width: 768px) {
+
+    main {
+        width: 95%;
+        margin: 15px auto;
+    }
+
+    .site-header {
+        padding: 20px 12px;
+    }
+
+    .brand {
+        gap: 12px;
+    }
+
+    .logo {
+        width: 95px;
+    }
+
+    .brand-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .brand-text p {
+        font-size: 0.9rem;
+    }
+
+    .navbar {
+        gap: 4px;
+    }
+
+    .navbar a {
+        padding: 9px 10px;
+        font-size: 0.88rem;
+    }
+
+    .section {
+        padding: 18px;
+    }
+
+    #match-form {
+        grid-template-columns: 1fr;
+    }
+
+    #start-match {
+        grid-column: auto;
+        width: 100%;
+    }
+
+    .total-score {
+        font-size: 2.8rem;
+    }
+
+    .scoring-buttons button {
+        flex: 1 1 110px;
+    }
+}
+
+
+/* Responsive Design - Mobile Phones */
+
+@media (max-width: 480px) {
+
+    .brand {
+        flex-direction: column;
+    }
+
+    .brand-text h1 {
+        font-size: 1.6rem;
+    }
+
+    .brand-text p {
+        font-size: 0.82rem;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .navbar a {
+        text-align: center;
+    }
+
+    .section {
+        padding: 14px;
+        margin-bottom: 15px;
+    }
+
+    .section h2 {
+        font-size: 1.2rem;
+    }
+
+    .match-heading {
+        font-size: 1.1rem;
+    }
+
+    .total-score {
+        font-size: 2.4rem;
+    }
+
+    .score-display {
+        padding: 16px 10px;
+    }
+
+    .scoring-buttons {
+        gap: 8px;
+    }
+
+    .scoring-buttons button {
+        flex: 1 1 40%;
+        padding: 10px 7px;
+        font-size: 0.88rem;
+    }
+
+    th,
+    td {
+        padding: 9px 7px;
+        font-size: 0.85rem;
+    }
+
+    .site-footer {
+        font-size: 0.9rem;
+    }
+}

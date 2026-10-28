@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="DMS Cricket Hub - Inter-College Cricket Match Scoreboard and Ball-by-Ball Log">
+
+    <title>DMS Cricket Hub | Inter-College Cricket</title>
+
+    <!-- External CSS file -->
+    <link rel="stylesheet" href="style file.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header id="home" class="site-header">
+
+        <div class="brand">
+            <img src="/logo.jpg"
+                 alt="DMS Cricket Hub Logo"
+                 class="logo">
+
+            <div class="brand-text">
+                <h1>DMS Cricket Hub</h1>
+                <p>Inter-College Cricket Match Scoreboard</p>
+                <p>Play • Score • Together</p>
+            </div>
+        </div>
+
+    </header>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav class="navbar" aria-label="Main navigation">
+
+        <a href="#home">Home</a>
+        <a href="#live-score">Live Score</a>
+        <a href="#match-setup">Match Setup</a>
+        <a href="#ball-log">Ball-by-Ball</a>
+        <a href="#match-history">Match History</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main>
+
+        <!-- ================= MATCH SETUP ================= -->
+
+        <section id="match-setup" class="section match-setup">
+
+            <h2>Match Setup</h2>
+
+            <p>Enter the match details to prepare the scoreboard.</p>
+
+            <form id="match-form">
+
+                <div class="form-group">
+                    <label for="team-a">Team A Name</label>
+                    <input type="text"
+                           id="team-a"
+                           name="teamA"
+                           placeholder="Enter Team A name"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="team-b">Team B Name</label>
+                    <input type="text"
+                           id="team-b"
+                           name="teamB"
+                           placeholder="Enter Team B name"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="match-type">Match Format</label>
+                    <select id="match-type" name="matchType">
+                        <option value="20">T20 - 20 Overs</option>
+                        <option value="10">10-Over Match</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="toss-winner">Toss Winner</label>
+                    <select id="toss-winner" name="tossWinner">
+                        <option value="A">Team A</option>
+                        <option value="B">Team B</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="toss-decision">Decision After Toss</label>
+                    <select id="toss-decision" name="tossDecision">
+                        <option value="bat">Bat First</option>
+                        <option value="bowl">Bowl First</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="match-date">Match Date</label>
+                    <input type="date" id="match-date" name="matchDate">
+                </div>
+
+                <div class="form-group">
+                    <label for="venue">Venue</label>
+                    <input type="text"
+                           id="venue"
+                           name="venue"
+                           placeholder="Enter match venue">
+                </div>
+
+                <button type="submit" id="start-match">
+                    Start Match
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ================= MATCH INFORMATION ================= -->
+
+        <section id="match-information" class="section">
+
+            <h2>Match Information</h2>
+
+            <p>
+                <strong>Teams:</strong>
+                <span id="match-teams">Team A vs Team B</span>
+            </p>
+
+            <p>
+                <strong>Date:</strong>
+                <span id="display-date">Not set</span>
+            </p>
+
+            <p>
+                <strong>Venue:</strong>
+                <span id="display-venue">Not set</span>
+            </p>
+
+            <p>
+                <strong>Match Format:</strong>
+                <span id="display-format">T20 - 20 Overs</span>
+            </p>
+
+            <p>
+                <strong>Toss Winner:</strong>
+                <span id="display-toss">Not set</span>
+            </p>
+
+            <p>
+                <strong>Decision:</strong>
+                <span id="display-decision">Not set</span>
+            </p>
+
+        </section>
+
+
+        <!-- ================= LIVE SCOREBOARD ================= -->
+
+        <section id="live-score" class="section scoreboard">
+
+            <h2>Live Scoreboard</h2>
+
+            <p class="match-heading">
+                <span id="batting-team-name">Team A</span>
+                vs
+                <span id="bowling-team-name">Team B</span>
+            </p>
+
+            <div class="score-display">
+
+                <h3>Current Innings</h3>
+
+                <p class="total-score">
+                    <span id="total-runs">0</span>
+                    /
+                    <span id="total-wickets">0</span>
+                </p>
+
+                <p>
+                    Overs:
+                    <span id="overs">0.0</span>
+                </p>
+
+                <p>
+                    Run Rate:
+                    <span id="run-rate">0.00</span>
+                </p>
+
+                <p>
+                    Target:
+                    <span id="target">Not set</span>
+                </p>
+
+                <p>
+                    Innings:
+                    <span id="innings-number">1</span>
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CURRENT BATSMEN ================= -->
+
+        <section id="batsmen" class="section">
+
+            <h2>Current Batsmen</h2>
+
+            <div class="table-container">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Batsman</th>
+                            <th scope="col">Runs</th>
+                            <th scope="col">Balls</th>
+                            <th scope="col">4s</th>
+                            <th scope="col">6s</th>
+                            <th scope="col">Strike Rate</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Not selected</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0.00</td>
+                        </tr>
+
+                        <tr>
+                            <td>Not selected</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CURRENT BOWLER ================= -->
+
+        <section id="bowler" class="section">
+
+            <h2>Current Bowler</h2>
+
+            <div class="table-container">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Bowler</th>
+                            <th scope="col">Overs</th>
+                            <th scope="col">Maidens</th>
+                            <th scope="col">Runs</th>
+                            <th scope="col">Wickets</th>
+                            <th scope="col">Economy</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Not selected</td>
+                            <td>0.0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SCORING CONTROLS ================= -->
+
+        <section id="scorer-panel" class="section scoring-controls">
+
+            <h2>Scoring Controls</h2>
+
+            <p>
+                Select the result of each delivery while scoring
+                the match.
+            </p>
+
+            <div class="scoring-buttons">
+
+                <button type="button" data-runs="0">
+                    0 - Dot Ball
+                </button>
+
+                <button type="button" data-runs="1">
+                    1 - Single
+                </button>
+
+                <button type="button" data-runs="2">
+                    2 - Runs
+                </button>
+
+                <button type="button" data-runs="4">
+                    4 - Boundary
+                </button>
+
+                <button type="button" data-runs="6">
+                    6 - Six
+                </button>
+
+                <button type="button" data-extra="wide">
+                    Wide
+                </button>
+
+                <button type="button" data-extra="noball">
+                    No-Ball
+                </button>
+
+                <button type="button" data-wicket="true">
+                    Wicket
+                </button>
+
+                <button type="button" id="undo-score">
+                    Undo
+                </button>
+
+            </div>
+
+            <p>
+                <strong>Note:</strong>
+                These controls are HTML buttons. Scoring logic
+                will be added with JavaScript later.
+            </p>
+
+        </section>
+
+
+        <!-- ================= CURRENT OVER ================= -->
+
+        <section id="current-over" class="section">
+
+            <h2>Current Over</h2>
+
+            <p>Ball results for the current over:</p>
+
+            <ul id="over-balls">
+                <li>No deliveries recorded yet.</li>
+            </ul>
+
+            <p>
+                <strong>Over Score:</strong>
+                <span id="over-score">0</span>
+            </p>
+
+        </section>
+
+
+        <!-- ================= BALL-BY-BALL LOG ================= -->
+
+        <section id="ball-log" class="section">
+
+            <h2>Ball-by-Ball Log</h2>
+
+            <div class="table-container">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Over</th>
+                            <th scope="col">Ball</th>
+                            <th scope="col">Batsman</th>
+                            <th scope="col">Bowler</th>
+                            <th scope="col">Runs</th>
+                            <th scope="col">Event</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="ball-log-body">
+                        <tr>
+                            <td colspan="6">
+                                No deliveries recorded yet.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MATCH SUMMARY ================= -->
+
+        <section id="match-summary" class="section">
+
+            <h2>Match Summary</h2>
+
+            <p>
+                <strong>First Innings:</strong>
+                <span id="first-innings-score">Not started</span>
+            </p>
+
+            <p>
+                <strong>Second Innings:</strong>
+                <span id="second-innings-score">Not started</span>
+            </p>
+
+            <p>
+                <strong>Current Run Rate:</strong>
+                <span id="summary-run-rate">0.00</span>
+            </p>
+
+            <p>
+                <strong>Target:</strong>
+                <span id="summary-target">Not set</span>
+            </p>
+
+            <p>
+                <strong>Match Result:</strong>
+                <span id="match-result">Match not completed</span>
+            </p>
+
+            <p>
+                <strong>Player of the Match:</strong>
+                <span id="player-of-match">Not decided</span>
+            </p>
+
+        </section>
+
+
+        <!-- ================= MATCH HISTORY ================= -->
+
+        <section id="match-history" class="section">
+
+            <h2>Recent Matches</h2>
+
+            <div class="table-container">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Match</th>
+                            <th scope="col">Teams</th>
+                            <th scope="col">Result</th>
+                            <th scope="col">Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="match-history-body">
+                        <tr>
+                            <td>1</td>
+                            <td>Team A vs Team B</td>
+                            <td>Result pending</td>
+                            <td>Not available</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section id="about" class="section">
+
+            <h2>About DMS Cricket Hub</h2>
+
+            <p>
+                DMS Cricket Hub is an inter-college cricket
+                scoreboard project designed to display match
+                information, scores, player statistics and
+                ball-by-ball updates in one place.
+            </p>
+
+            <p>
+                The project aims to make cricket scoring easier
+                to follow and understand for students, players
+                and spectators.
+            </p>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <section id="contact" class="section">
+
+            <h2>Contact Us</h2>
+
+            <form id="contact-form">
+
+                <div class="form-group">
+                    <label for="contact-name">Your Name</label>
+                    <input type="text"
+                           id="contact-name"
+                           name="contactName"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-email">Email Address</label>
+                    <input type="email"
+                           id="contact-email"
+                           name="contactEmail"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-message">Message</label>
+                    <textarea id="contact-message"
+                              name="contactMessage"
+                              rows="4"
+                              required></textarea>
+                </div>
+
+                <button type="submit">Send Message</button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="site-footer">
+
+        <p>
+            &copy; 2026 DMS Cricket Hub.
+            All rights reserved.
+        </p>
+
+        <p>Play • Score • Together</p>
+
+        <a href="#home">Back to Top</a>
+
+    </footer>
+
+</body>
+
+</html>
